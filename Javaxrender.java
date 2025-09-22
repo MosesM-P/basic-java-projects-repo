@@ -18,15 +18,15 @@ public class Javaxrender {
         Container pane = frame.getContentPane();
         pane.setLayout(new BorderLayout());
 
-        // slider to control horizontal rotation
+        // horizontal slider
         JSlider headingSlider = new JSlider(-180, 180, 0);
         pane.add(headingSlider, BorderLayout.SOUTH);
 
-        // slider to control vertical rotation
+        // vertical slider
         JSlider pitchSlider = new JSlider(SwingConstants.VERTICAL, -90, 90, 0);
         pane.add(pitchSlider, BorderLayout.EAST);
 
-        // panel to display render results
+        // panel for render
         JPanel renderPanel = new JPanel() {
                 public void paintComponent(Graphics g) {
                     Graphics2D g2 = (Graphics2D) g;
@@ -73,7 +73,7 @@ public class Javaxrender {
                     lastRenderedImage = img;
 
                     double[] zBuffer = new double[img.getWidth() * img.getHeight()];
-                    // initialize array with extremely far away depths
+
                     for (int q = 0; q < zBuffer.length; q++) {
                         zBuffer[q] = Double.NEGATIVE_INFINITY;
                     }
